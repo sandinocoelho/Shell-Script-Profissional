@@ -1,0 +1,32 @@
+ - Metacaracteres
+
+^               - Representa o começo da linha
+$               - Representa o fim da linha
+[abc]           - Casa as letras 'a' ou 'b' ou 'c'
+[a-d]           - Casa as letras de 'a' até 'd'
+[^abc]          - Casa qualquer caractere, exceto 'a', 'b' e 'c'
+(esse|aquele)   - Casa as strings 'esse' ou 'aquele'
+a{2}            - Casa a letra 'a' duas vezes
+a{2,4}          - Casa a letra 'a' de duas a quatro vezes
+a{2,}           - Casa a letra 'a' no mínimo duas vezes
+a?              - Casa a letra 'a' zero ou uma vezes
+a*              - Casa a letra 'a' zero ou mais vezes
+a+              - Casa a letra 'a' uma ou mais vezes
+.               - Casa um caractere qualquer
+.*              - Casa qualquer coisa, é o tudo e o nada
+
+ - Cuidado para não confundir o GLOB do shell com ER
+
+Equivalencias entre GLOB e ER:
+GLOB                -       ER
+*                   -       .*
+?                   -       .
+{a,b}               -       (a|b)
+[abc]               -       [abc]
+[^abc]              -       [^abc]
+[0-9]               -       [0-9]
+*.txt               -       .*\.txt
+arquivo-??.txt      -       arquivo-..\.txt
+arquivo.{txt|html}  -       arquivo\.(txt|html)
+[Aa]rquivo.txt      -       [Aa]rquivo\.txt
+
