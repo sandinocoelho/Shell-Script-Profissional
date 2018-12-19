@@ -1,0 +1,55 @@
+Capitulo 6  - Caracteres de controle
+
+- Cores na tela
+
+Segue o padrão ESC[ n1; n2 ; ... m
+
+ex:
+    echo -e '\033[31m MENSAGEM IMPORTANTE!!! \033[m' -- Mensagem em vermelho (o -e indica que será usado o caractere de escape)
+    
+    echo -e '\033[44;31;1;5m fundo azul, letra vermelha \033[m' - Fundo azul, letra vermelha
+
+
+- Posicionando o cursor
+
+Segue o padrão ESC[<quantidade><comando>
+
+Ex:
+    echo -e '\033c\033[HH\033[4;7H.C\033[3DD\033[AA\033[GF\nG\nE\033[7GB'
+
+    Dissecando o comando acima:
+    \033c       - Limpa a tela. ESCc = ESC[2J como ja visto anteriormente
+    \033[HH     - Coloca a letra H no canto superior esquerdo da tela
+    \033[4;7H.  - Pula para a linha 4 coluna 7 e coloca o ponto
+    C           - Com o cursor após o ponto aproveita para colocar a letra C
+    \033[3DD    - Volta 3 posições à esquerda para colocar a letra D.
+    \033[AA     - Com o cursor sobre o ponto, sobe uma linha e coloca a letra A
+    \033[GF     - Pula para o início da linha e coloca a letra F
+    \nG\nE      - Usa o \n para descer linhas e coloca as letras G e E
+    \033[7GB    - Finalmente pula para a coluna 7 da mesma linha e coloca a letra B
+
+
+- Comandos de som
+    Vou pular este Conteúdo pois não é relevante no momento
+
+- Outros Comandos
+    
+    n=1 por padrão
+ESC[0J      - Apaga até o fim da tela
+ESC[1J      - Apaga até o começo da tela
+ESC[2J      - Apaga a tela toda
+ESC[0K      - Apaga até o fim da linha
+ESC[1K      - Apaga até o começo da linha
+ESC[2K      - Apaga a linha toda
+ESC[nM      - Apaga n linhas para baixo
+ESC[nP      - Apaga n caracteres à direita
+ESC[nX      - Limpa n caracteres à direita(coloca espaços)
+ESC[n@      - Insere n espaços em branco
+ESC[nL      - Insere n linhas em branco
+ESC[nS      - Move a tela n linhas para cima
+ESC[nT      - Move a tela n linhas para baixo
+
+
+*   Comandos como o tput ou bibliotecas como ncurses visam facilitar a tarefa de 
+    posicionamento de texto e desenhos de caixas e botões.
+    
